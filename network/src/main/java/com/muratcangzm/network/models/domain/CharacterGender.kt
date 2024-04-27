@@ -1,0 +1,12 @@
+package com.muratcangzm.network.models.domain
+
+import kotlinx.serialization.Serializable
+
+sealed class CharacterGender(val displayName:String) {
+
+    object Male: CharacterGender("Male")
+    object Female: CharacterGender("Female")
+    object Genderless: CharacterGender("No gender")
+    object Unknown: CharacterGender("Not specified")
+
+}

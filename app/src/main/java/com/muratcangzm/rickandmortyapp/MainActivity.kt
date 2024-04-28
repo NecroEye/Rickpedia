@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.muratcangzm.network.KtorClient
 import com.muratcangzm.network.models.domain.Character
+import com.muratcangzm.rickandmortyapp.screens.CharacterDetailScreen
+import com.muratcangzm.rickandmortyapp.ui.theme.RickPrimary
 import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
@@ -34,25 +36,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var character by remember {
-                mutableStateOf<Character?>(null)
-            }
 
-            LaunchedEffect(key1 = Unit, block = {
-                delay(2000)
-                character = ktorClient.getCharacter(1)
-
-            })
-
-            Surface(modifier = Modifier.fillMaxSize()) {
+            Surface(modifier = Modifier.fillMaxSize(),
+                color = RickPrimary) {
 
                 Column(modifier = Modifier.padding(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally) {
 
-                    Text(text = character?.name ?: "Empty",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.Black)
+                    CharacterDetailScreen(characterId = 25, ktorClient = ktorClient)
 
 
                 }

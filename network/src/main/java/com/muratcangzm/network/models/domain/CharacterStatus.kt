@@ -7,6 +7,6 @@ sealed class CharacterStatus(val displayName:String, val color: Color) {
 
     object Alive : CharacterStatus("Canlı", Color.Green)
     object Dead : CharacterStatus("Ölü", Color.Red)
-    object Unknown : CharacterStatus("Bilinmiyor", Color.Gray)
+    object Unknown : CharacterStatus("Bilinmiyor", Color.Yellow)
 
 }

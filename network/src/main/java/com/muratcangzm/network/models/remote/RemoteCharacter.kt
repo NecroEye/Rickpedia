@@ -56,8 +56,8 @@ fun RemoteCharacter.toDomainCharacter(): Character {
         episodeIds = episode.map {it.substring(it.lastIndexOf("/") + 1).toInt()},
         type = type,
         gender = characterGender,
-        origin = Character.Origin(name, url),
-        location = Character.Location(name, url),
+        origin = Character.Origin(name = origin.name, url = origin.url),
+        location = Character.Location(name = location.name, url = location.url),
         image = image,
         url = url,
         created = created

@@ -6,6 +6,7 @@ data class Character(
     val name: String,
     val status: CharacterStatus,
     val species: String,
+    val episodeIds: List<Int>,
     val type: String,
     val gender: CharacterGender,
     val origin: Origin,

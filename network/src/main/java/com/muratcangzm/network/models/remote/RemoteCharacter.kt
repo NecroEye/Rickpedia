@@ -11,6 +11,7 @@ data class RemoteCharacter(
     val name: String,
     val status: String,
     val species: String,
+    val episode: List<String>,
     val type: String,
     val gender: String,
     val origin: Origin,
@@ -31,36 +32,35 @@ data class RemoteCharacter(
         val name: String,
         val url: String
     )
-
-    fun RemoteCharacter.toDomainCharacter(): Character {
-
-        val characterGender = when (gender.lowercase()) {
-            "male" -> CharacterGender.Male
-            "female" -> CharacterGender.Female
-            "genderless" -> CharacterGender.Genderless
-            else -> CharacterGender.Unknown
-        }
-        val characterStatus = when (status.lowercase()) {
-            "alive" -> CharacterStatus.Alive
-            "dead" -> CharacterStatus.Dead
-            else -> CharacterStatus.Unknown
-        }
-
-        return Character(
-            id = id,
-            name = name,
-            status = characterStatus,
-            species = species,
-            type = type,
-            gender = characterGender,
-            origin = Character.Origin(name, url),
-            location = Character.Location(name, url),
-            image = image,
-            url = url,
-            created = created
-        )
-
-    }
-
 }
 
+fun RemoteCharacter.toDomainCharacter(): Character {
+
+    val characterGender = when (gender.lowercase()) {
+        "male" -> CharacterGender.Male
+        "female" -> CharacterGender.Female
+        "genderless" -> CharacterGender.Genderless
+        else -> CharacterGender.Unknown
+    }
+    val characterStatus = when (status.lowercase()) {
+        "alive" -> CharacterStatus.Alive
+        "dead" -> CharacterStatus.Dead
+        else -> CharacterStatus.Unknown
+    }
+
+    return Character(
+        id = id,
+        name = name,
+        status = characterStatus,
+        species = species,
+        episodeIds = episode.map {it.substring(it.lastIndexOf("/") + 1).toInt()},
+        type = type,
+        gender = characterGender,
+        origin = Character.Origin(name, url),
+        location = Character.Location(name, url),
+        image = image,
+        url = url,
+        created = created
+    )
+
+}

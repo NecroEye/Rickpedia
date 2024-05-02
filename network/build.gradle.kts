@@ -42,12 +42,8 @@ android {
 
 dependencies {
 
-
-    implementation ("io.ktor:ktor-client-core:2.3.6")
-    implementation ("io.ktor:ktor-client-okhttp:2.3.6")
-    implementation ("io.ktor:ktor-client-content-negotiation:2.3.6")
-    implementation ("io.ktor:ktor-serialization-kotlinx-json:2.3.6")
-    implementation ("io.ktor:ktor-client-logging:2.3.6")
+    //Ktor Client
+    implementation(libs.bundles.ktor.client)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

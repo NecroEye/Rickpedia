@@ -5,14 +5,20 @@ coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
+ktorClientContentNegotiation = "2.3.6"
+ktorClientOkhttp = "2.3.6"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
 composeBom = "2023.08.00"
 appcompat = "1.6.1"
 material = "1.11.0"
+coil = "2.6.0"
+navigationCompose = "2.7.7"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -27,7 +33,23 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+ktor-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientContentNegotiation" }
+ktor-ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientOkhttp" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.prefer = "2.3.6" }
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.prefer = "2.3.6" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.prefer = "2.3.6" }
+
+
+[bundles]
+ktor-client = [
+    "ktor-client-core",
+    "ktor-serialization-kotlinx-json",
+    "ktor-client-logging",
+    "ktor-ktor-client-okhttp",
+    "ktor-ktor-client-content-negotiation"
+]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

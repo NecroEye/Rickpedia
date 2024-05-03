@@ -15,3 +15,6 @@ val RickAction = Color(0xffb5eefd)
 val RickSurface = Color(0xffead7ce)
 val RickTextPrimary = Color(0xffffffff)
 val RickTextSecondary = Color(0xffead7ce)
+val darken = Color(0xff201a30)
+
+

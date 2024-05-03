@@ -159,6 +159,7 @@ fun CharacterDetailScreen(
                     }
                     .padding(vertical = 8.dp)
                     .fillMaxWidth()
+
             )
         }
 

@@ -64,6 +64,7 @@ fun CharacterEpisodeScreen(characterId: Int, ktorClient: KtorClient) {
                 }
                     .onFailure {
 
+
                     }
             }
         }.onFailure {
@@ -75,7 +76,6 @@ fun CharacterEpisodeScreen(characterId: Int, ktorClient: KtorClient) {
     characterState?.let { character ->
         MainScreen(character = character, episodes = episodesState)
     } ?: LoadingState()
-
 }
 
 

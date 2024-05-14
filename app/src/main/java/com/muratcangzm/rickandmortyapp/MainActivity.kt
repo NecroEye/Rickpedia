@@ -32,11 +32,15 @@ import com.muratcangzm.network.models.domain.Character
 import com.muratcangzm.rickandmortyapp.screens.CharacterDetailScreen
 import com.muratcangzm.rickandmortyapp.screens.CharacterEpisodeScreen
 import com.muratcangzm.rickandmortyapp.ui.theme.RickPrimary
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val ktorClient = KtorClient()
+    @Inject
+    lateinit var ktorClient:KtorClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(navController = navController, startDestination = "character_details") {
                         composable(route = "character_details") {
-                            CharacterDetailScreen(characterId = 114, ktorClient = ktorClient) {
+                            CharacterDetailScreen(characterId = 114) {
                                 navController.navigate("character_episodes/$it")
                             }
                         }
